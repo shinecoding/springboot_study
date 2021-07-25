@@ -14,6 +14,5 @@ public class GreetingController {
         return "greeting";
     }
 
-    @GetMapping()
-    public String 
+
 }
