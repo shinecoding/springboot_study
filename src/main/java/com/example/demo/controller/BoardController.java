@@ -48,6 +48,7 @@ public class BoardController {
             return "board/form";
         }
         boardRepository.save(board);
+
         return "redirect:/board/list";
     }
 }
