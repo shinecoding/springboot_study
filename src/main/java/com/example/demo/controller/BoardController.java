@@ -38,7 +38,7 @@ public class BoardController {
        //Page<Board> boards = boardRepository.findAll(pageable);
         Page<Board> boards = boardRepository.findByTitleContainingOrContentContaining(searchText, searchText, pageable);
        int startPage= (boards.getNumber() / tabPage) * tabPage + 1;
-       int endPage = boards.getTotalPages() == 0? 1: (startPage + (tabPage-1) < boards.getTotalPages()? startPage + tabPage-1 : boards.getTotalPages()) ;
+       int endPage = boards.getTotalPages() == 0? 1: (startPage + tabPage-1 < boards.getTotalPages()? startPage + tabPage-1 : boards.getTotalPages()) ;
 
        model.addAttribute("startPage", startPage);
        model.addAttribute("endPage", endPage);
