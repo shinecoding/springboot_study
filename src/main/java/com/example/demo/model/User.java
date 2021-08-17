@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,7 +30,14 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
+    @JsonIgnore //postman으로 보면 재귀적으로 연결되어있는 걸 끊어줄 수 있음
     private List<Role> roles = new ArrayList<>();
+
+    //user는 board클래스의 User user 변수명
+    @OneToMany(mappedBy = "user")
+    private List<Board> boards = new ArrayList<>();
+
+
 
     public Long getId() {
         return id;
