@@ -22,7 +22,7 @@ public class Board {
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    @JsonIgnore
+    @JsonIgnore //many인쪽에만 ignore한다
     private User user;
 
     public Long getId() {

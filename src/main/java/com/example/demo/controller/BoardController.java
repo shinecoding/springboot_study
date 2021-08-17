@@ -71,13 +71,13 @@ public class BoardController {
         if(bindingResult.hasErrors()){
             return "board/form";
         }
-        //인증정보 가져오는 방법2
-        //  Authentication a = SecurityContextHolder.getContext().getAuthentication();
+
         String username = authentication.getName();
         
         //인증정보를 이렇겐 가져올 수 없음
         //board.setUser(user);
-
+        //인증정보 가져오는 방법2
+        //  Authentication a = SecurityContextHolder.getContext().getAuthentication();
         boardService.save(username, board);
         //boardRepository.save(board);
 
