@@ -44,6 +44,7 @@ class UserApiController {
                 .map(user ->{
 //                    user.setTitle(newUser.getTitle());
 //                   user.setContent(newUser.getContent());
+                   
                     return repository.save(user);
                 })
                 .orElseGet(() -> {

@@ -3,6 +3,8 @@ package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -11,6 +13,8 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Data
+@Getter
+@Setter
 public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,4 +60,6 @@ public class Board {
     public void setUser(User user) {
         this.user = user;
     }
+
+
 }
