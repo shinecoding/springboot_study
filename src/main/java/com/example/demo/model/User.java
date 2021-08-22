@@ -34,7 +34,9 @@ public class User {
     private List<Role> roles = new ArrayList<>();
 
     //user는 board클래스의 User user 변수명
-    @OneToMany(mappedBy = "user")
+    //유저를 수정할 때 보드도 바뀌게 하고 싶으면 cascade
+    //orphanRemoval 고아->true : 부모가 없는 데이터는 지운다
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Board> boards = new ArrayList<>();
 
 
@@ -77,6 +79,14 @@ public class User {
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public List<Board> getBoards() {
+        return boards;
+    }
+
+    public void setBoards(List<Board> boards) {
+        this.boards = boards;
     }
 }
 
